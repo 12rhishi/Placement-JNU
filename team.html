@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Teams | Placement Cell — Jawaharlal Nehru University</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700&display=swap"
+        rel="stylesheet" />
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        jnuBlue: '#003366',
+                        jnuLightBlue: '#005b96',
+                        jnuRed: '#990000',
+                        jnuGold: '#C5A059'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Merriweather', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .team-card {
+            background: #fff;
+            border-radius: 0.75rem;
+            overflow: hidden;
+            transition: transform .28s cubic-bezier(.2, .9, .2, 1), box-shadow .28s;
+            will-change: transform;
+            box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+            display: block;
+        }
+
+        .card-media {
+            padding: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: transparent;
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
+        }
+
+        .avatar {
+            width: 180px;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 0.75rem;
+            border: 0;
+            box-shadow: 0 8px 24px rgba(2, 6, 23, 0.06);
+            display: block;
+        }
+
+        @media (max-width: 640px) {
+            .avatar {
+                width: 36vw;
+                height: 44vw;
+            }
+        }
+
+        .icon-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            background: #fff;
+            box-shadow: 0 6px 14px rgba(2, 6, 23, 0.06);
+            transition: transform .22s ease, background .22s, box-shadow .22s;
+            border: 1px solid rgba(2, 6, 23, 0.04);
+        }
+
+        .icon-btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 36px rgba(2, 6, 23, 0.12);
+        }
+
+        /* small visual accent under section headings */
+        .accent-line {
+            width: 42px;
+            height: 6px;
+            background: linear-gradient(90deg, #003366, #990000);
+            border-radius: 6px;
+            display: inline-block;
+            margin-right: .75rem;
+        }
+
+        /* Toggle UI & sliding panels (unchanged) */
+        .team-toggle {
+            display: inline-flex;
+            background: #fff;
+            border-radius: 12px;
+            padding: 4px;
+            box-shadow: 0 6px 20px rgba(2, 6, 23, 0.06);
+            border: 1px solid rgba(2, 6, 23, 0.06);
+        }
+
+        .team-toggle button {
+            padding: 8px 16px;
+            border-radius: 8px;
+            background: transparent;
+            border: none;
+            font-weight: 600;
+            color: #374151;
+            cursor: pointer;
+            transition: all .18s ease;
+            font-size: 14px;
+        }
+
+        .team-toggle button[aria-pressed="true"] {
+            background: linear-gradient(90deg, #003366, #990000);
+            color: #fff;
+            box-shadow: 0 8px 24px rgba(2, 6, 23, 0.12);
+        }
+
+        .panels {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .panels-track {
+            display: flex;
+            width: 200%;
+            transition: transform .45s cubic-bezier(.2, .9, .2, 1);
+        }
+
+        .panel {
+            width: 100%;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* reduce layout shift: allow track to auto height by animating transform only */
+        @media (prefers-reduced-motion: reduce) {
+            .panels-track {
+                transition: none;
+            }
+        }
+
+        /* small responsive tweaks for many cards grid rows */
+        @media (max-width: 900px) {
+            .grid-md-5 {
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 font-sans antialiased text-gray-800">
+
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="window.location.href='home.html'">
+                    <div class="flex items-center gap-3">
+                        <div class="text-jnuBlue text-4xl">
+                            <img src="./assets/logos/jnulogo2.png" alt="JNU logo" class="h-12 w-12 object-contain">
+                        </div>
+                        <div class="border-l-2 border-gray-300 pl-3">
+                            <h1 class="text-lg font-serif font-bold text-jnuBlue leading-none">Jawaharlal Nehru
+                                university</h1>
+                            <p class="text-[10px] font-bold text-jnuRed tracking-widest uppercase mt-1">Placement Cell
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="home.html" class="text-gray-600 hover:text-jnuBlue font-medium text-sm uppercase">HOME</a>
+                    <a href="About_Us.html" class="text-gray-600 hover:text-jnuBlue font-medium text-sm uppercase">ABOUT
+                        US</a>
+                    <a href="For_Recuiters.html"
+                        class="text-gray-600 hover:text-jnuBlue font-medium text-sm uppercase">FOR RECUITERS</a>
+                    <a href="students.html" class="text-gray-600 hover:text-jnuBlue font-medium text-sm uppercase">FOR
+                        STUDENTS</a>
+                    <a href="Campus_Life.html"
+                        class="text-gray-600 hover:text-jnuBlue font-medium text-sm uppercase">CAMPUS LIFE</a>
+                    <a href="team.html" class="text-jnuBlue font-bold text-sm uppercase border-b-2 border-jnuRed">OUR
+                        TEAM</a>
+                    <a href="Our_Alumini.html"
+                        class="text-gray-600 hover:text-jnuBlue font-medium text-sm uppercase">OUR ALUMINI</a>
+                    <a href="Contact_Us.html"
+                        class="text-gray-600 hover:text-jnuBlue font-medium text-sm uppercase">CONTACT US</a>
+                </div>
+                <div class="flex items-center md:hidden">
+                    <button onclick="toggleMobileMenu()"
+                        class="text-gray-600 hover:text-jnuBlue p-2 focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobileMenu"
+            class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full shadow-xl z-40 left-0">
+            <div class="px-4 pt-2 pb-4 space-y-2">
+                <a href="home.html"
+                    class="block py-2 text-sm font-semibold text-gray-600 hover:text-jnuBlue border-b border-gray-100">HOME</a>
+                <a href="About_Us.html"
+                    class="block py-2 text-sm font-semibold text-gray-600 hover:text-jnuBlue border-b border-gray-100">ABOUT
+                    US</a>
+                <a href="For_Recuiters.html"
+                    class="block py-2 text-sm font-semibold text-gray-600 hover:text-jnuBlue border-b border-gray-100">FOR
+                    RECUITERS</a>
+                <a href="students.html"
+                    class="block py-2 text-sm font-semibold text-gray-600 hover:text-jnuBlue border-b border-gray-100">FOR
+                    STUDENTS</a>
+                <a href="Campus_Life.html"
+                    class="block py-2 text-sm font-semibold text-gray-600 hover:text-jnuBlue border-b border-gray-100">CAMPUS
+                    LIFE</a>
+                <a href="team.html" class="block py-2 text-sm font-bold text-jnuBlue">OUR TEAM</a>
+                <a href="Our_Alumini.html"
+                    class="block py-2 text-sm font-semibold text-gray-600 hover:text-jnuBlue border-b border-gray-100">OUR
+                    ALUMINI</a>
+                <a href="Contact_Us.html"
+                    class="block py-2 text-sm font-semibold text-gray-600 hover:text-jnuBlue border-b border-gray-100">CONTACT
+                    US</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Hero -->
+    <header class="bg-gray-100 py-8 border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-3xl md:text-4xl font-serif font-bold text-jnuBlue mb-2">Contact & Team — Placement Cell</h1>
+            <p class="text-gray-600 max-w-3xl mx-auto">Administration, Faculty Coordinators and Student Team responsible
+                for placements at JNU.</p>
+
+            <!-- Toggle placed here -->
+            <div class="mt-6 flex justify-center">
+                <div class="team-toggle" role="tablist" aria-label="Team sections">
+                    <button id="btn-admin" role="tab" aria-controls="panel-admin"
+                        aria-pressed="true">Administration</button>
+                    <button id="btn-students" role="tab" aria-controls="panel-students" aria-pressed="false">Student
+                        Team</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+        <!-- panels wrapper: track slides horizontally -->
+        <div class="panels mt-6">
+            <div id="panelsTrack" class="panels-track">
+
+                <!-- Panel A: Administration (default visible) -->
+                <section id="panel-admin" class="panel px-0">
+                    <div class="bg-white rounded shadow-sm p-8">
+                        <div class="flex items-center mb-6">
+                            <span class="accent-line"></span>
+                            <h2 class="text-2xl font-serif font-bold text-gray-800">Administration</h2>
+                        </div>
+
+                        <!-- Top: Director & AR -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                            <!-- Director -->
+                            <div class="text-center">
+                                <div class="team-card inline-block">
+                                    <div class="card-media">
+                                        <img src="assets/teams/KumarArvind.png" alt="Arvind Kumar"
+                                            class="avatar mx-auto">
+                                    </div>
+                                    <div class="mt-4">
+                                        <div class="text-lg font-bold">Prof. Arvind Kumar</div>
+                                        <div class="text-sm text-gray-600 italic">Director</div>
+                                        <div class="text-sm text-gray-600 italic">JNU Placement Cell</div>
+                                        <div class="mt-3 flex justify-center gap-3">
+                                            <a class="icon-btn" href="#" title="LinkedIn"><i
+                                                    class="fab fa-linkedin text-jnuBlue"></i></a>
+                                            <a class="icon-btn" href="mailto:director@jnu.ac.in" title="Email"><i
+                                                    class="fas fa-envelope text-gray-700"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Assistant / AR -->
+                            <div class="text-center">
+                                <div class="team-card inline-block">
+                                    <div class="card-media">
+                                        <img src="./assets/teams/poojasharma.png" alt="Pooja Sharma"
+                                            class="avatar mx-auto">
+                                    </div>
+                                    <div class="mt-4">
+                                        <div class="text-lg font-bold">Pooja Sharma</div>
+                                        <div class="text-sm text-gray-600 italic">Assistant Registrar</div>
+                                        <div class="text-sm text-gray-600 italic">Placement Cell</div>
+                                        <div class="mt-3 flex justify-center gap-3">
+                                            <a class="icon-btn" href="#" title="LinkedIn"><i
+                                                    class="fab fa-linkedin text-jnuBlue"></i></a>
+                                            <a class="icon-btn" href="mailto:ar.placement@jnu.ac.in" title="Email"><i
+                                                    class="fas fa-envelope text-gray-700"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Deputy Directors -->
+                        <div class="mb-8">
+                            <h3 class="text-xl font-bold text-gray-800 mb-4">Deputy Directors</h3>
+                            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 grid-md-5">
+                                <!-- Repeatable card format -->
+                                <div class="team-card bg-white p-4 rounded text-center">
+                                    <img src="./assets/teams/anupamanamburu.jpg" alt=""
+                                        class="w-36 h-36 mx-auto rounded-lg object-cover">
+                                    <div class="mt-3 font-bold text-sm">Dr. Anupama Namburu</div>
+                                    <div class="text-xs text-gray-500 italic">Deputy Director, Placement Cell</div>
+                                    <div class="mt-2 flex justify-center gap-2">
+                                        <a class="icon-btn" href="#" title="LinkedIn"><i
+                                                class="fab fa-linkedin text-jnuBlue"></i></a>
+                                        <a class="icon-btn" href="mailto:anupama.n@jnu.ac.in" title="Email"><i
+                                                class="fas fa-envelope text-gray-700"></i></a>
+                                    </div>
+                                </div>
+
+                                <div class="team-card bg-white p-4 rounded text-center">
+                                    <img src="./assets/teams/pankajthakur.jpg" alt=""
+                                        class="w-36 h-36 mx-auto rounded-lg object-cover">
+                                    <div class="mt-3 font-bold text-sm">Dr. Pankaj Thakur</div>
+                                    <div class="text-xs text-gray-500 italic">Deputy Director, Placement Cell</div>
+                                    <div class="mt-2 flex justify-center gap-2">
+                                        <a class="icon-btn" href="#" title="LinkedIn"><i
+                                                class="fab fa-linkedin text-jnuBlue"></i></a>
+                                        <a class="icon-btn" href="mailto:pankaj.t@jnu.ac.in" title="Email"><i
+                                                class="fas fa-envelope text-gray-700"></i></a>
+                                    </div>
+                                </div>
+
+                                <div class="team-card bg-white p-4 rounded text-center">
+                                    <img src="./assets/teams/RashmiBarua.jpg" alt=""
+                                        class="w-36 h-36 mx-auto rounded-lg object-cover">
+                                    <div class="mt-3 font-bold text-sm">Dr. Rashmi Barua</div>
+                                    <div class="text-xs text-gray-500 italic">Deputy Director, Placement Cell</div>
+                                    <div class="mt-2 flex justify-center gap-2">
+                                        <a class="icon-btn" href="#" title="LinkedIn"><i
+                                                class="fab fa-linkedin text-jnuBlue"></i></a>
+                                        <a class="icon-btn" href="mailto:rashmi.b@jnu.ac.in" title="Email"><i
+                                                class="fas fa-envelope text-gray-700"></i></a>
+                                    </div>
+                                </div>
+
+                                <div class="team-card bg-white p-4 rounded text-center">
+                                    <img src="./assets/teams/sakshisharma.jpg" alt=""
+                                        class="w-36 h-36 mx-auto rounded-lg object-cover">
+                                    <div class="mt-3 font-bold text-sm">Dr. Sakshi Sharma</div>
+                                    <div class="text-xs text-gray-500 italic">Deputy Director, Placement Cell</div>
+                                    <div class="mt-2 flex justify-center gap-2">
+                                        <a class="icon-btn" href="#" title="LinkedIn"><i
+                                                class="fab fa-linkedin text-jnuBlue"></i></a>
+                                        <a class="icon-btn" href="mailto:sakshi.s@jnu.ac.in" title="Email"><i
+                                                class="fas fa-envelope text-gray-700"></i></a>
+                                    </div>
+                                </div>
+
+                                <div class="team-card bg-white p-4 rounded text-center">
+                                    <img src="./assets/teams/sandeepsingh.png" alt=""
+                                        class="w-36 h-36 mx-auto rounded-lg object-cover">
+                                    <div class="mt-3 font-bold text-sm">Dr. Sandip Kumar Singh</div>
+                                    <div class="text-xs text-gray-500 italic">Deputy Director, Placement Cell</div>
+                                    <div class="mt-2 flex justify-center gap-2">
+                                        <a class="icon-btn" href="#" title="LinkedIn"><i
+                                                class="fab fa-linkedin text-jnuBlue"></i></a>
+                                        <a class="icon-btn" href="mailto:sandip.s@jnu.ac.in" title="Email"><i
+                                                class="fas fa-envelope text-gray-700"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Faculty Coordinators (under Deputy Directors) -->
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-4">Faculty Coordinators</h3>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+                                <div class="team-card bg-white p-4 rounded text-center">
+                                    <img src="./assets/teams/mukeshgiluka.jpg" alt=""
+                                        class="w-28 h-28 mx-auto rounded-full object-cover">
+                                    <div class="mt-3 font-semibold text-sm">Dr. Mukesh Kumar Giluka</div>
+                                    <div class="text-xs text-gray-500">Faculty Coordinator — School of Engineering</div>
+                                </div>
+
+                                <div class="team-card bg-white p-4 rounded text-center">
+                                    <img src="./assets/team/fac2.jpg" alt=""
+                                        class="w-28 h-28 mx-auto rounded-full object-cover">
+                                    <div class="mt-3 font-semibold text-sm">Prof. R. Mehta</div>
+                                    <div class="text-xs text-gray-500">Faculty Coordinator — School of International
+                                        Studies</div>
+                                </div>
+
+                                <div class="team-card bg-white p-4 rounded text-center">
+                                    <img src="./assets/team/fac3.jpg" alt=""
+                                        class="w-28 h-28 mx-auto rounded-full object-cover">
+                                    <div class="mt-3 font-semibold text-sm">Prof. L. Gupta</div>
+                                    <div class="text-xs text-gray-500">Faculty Coordinator — School of Social Sciences
+                                    </div>
+                                </div>
+
+                                <div class="team-card bg-white p-4 rounded text-center">
+                                    <img src="./assets/team/fac4.jpg" alt=""
+                                        class="w-28 h-28 mx-auto rounded-full object-cover">
+                                    <div class="mt-3 font-semibold text-sm">Prof. M. Rao</div>
+                                    <div class="text-xs text-gray-500">Faculty Coordinator — School of Computer &
+                                        Systems</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Panel B: Student Team -->
+                <section id="panel-students" class="panel px-0">
+                    <div class="bg-white rounded shadow-sm p-8">
+                        <div class="flex items-center mb-6">
+                            <span class="accent-line"></span>
+                            <h2 class="text-2xl font-serif font-bold text-gray-800">Student Team</h2>
+                        </div>
+
+                        <!-- Coordinators -->
+                        <div class="mb-8">
+                            <h3 class="text-lg font-bold mb-3">Coordinators</h3>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+                                <div class="team-card text-center p-4 rounded bg-white">
+                                    <img src="./assets/team/stud_coord1.jpg" alt=""
+                                        class="w-28 h-28 mx-auto rounded-full object-cover">
+                                    <div class="mt-3 font-semibold">A. Kumar</div>
+                                    <div class="text-xs text-gray-500">Placement Coordinator</div>
+                                    <div class="mt-2">
+                                        <a class="icon-btn" href="mailto:akumar@students.jnu.ac.in"><i
+                                                class="fas fa-envelope text-gray-700"></i></a>
+                                    </div>
+                                </div>
+
+                                <div class="team-card text-center p-4 rounded bg-white">
+                                    <img src="./assets/team/stud_coord2.jpg" alt=""
+                                        class="w-28 h-28 mx-auto rounded-full object-cover">
+                                    <div class="mt-3 font-semibold">S. Verma</div>
+                                    <div class="text-xs text-gray-500">Placement Coordinator</div>
+                                    <div class="mt-2">
+                                        <a class="icon-btn" href="mailto:sverma@students.jnu.ac.in"><i
+                                                class="fas fa-envelope text-gray-700"></i></a>
+                                    </div>
+                                </div>
+
+                                <div class="team-card text-center p-4 rounded bg-white">
+                                    <img src="./assets/team/stud_coord3.jpg" alt=""
+                                        class="w-28 h-28 mx-auto rounded-full object-cover">
+                                    <div class="mt-3 font-semibold">R. Dutta</div>
+                                    <div class="text-xs text-gray-500">Placement Coordinator</div>
+                                    <div class="mt-2">
+                                        <a class="icon-btn" href="mailto:rdutta@students.jnu.ac.in"><i
+                                                class="fas fa-envelope text-gray-700"></i></a>
+                                    </div>
+                                </div>
+
+                                <div class="team-card text-center p-4 rounded bg-white">
+                                    <img src="./assets/team/stud_coord4.jpg" alt=""
+                                        class="w-28 h-28 mx-auto rounded-full object-cover">
+                                    <div class="mt-3 font-semibold">T. Singh</div>
+                                    <div class="text-xs text-gray-500">Placement Coordinator</div>
+                                    <div class="mt-2">
+                                        <a class="icon-btn" href="mailto:tsingh@students.jnu.ac.in"><i
+                                                class="fas fa-envelope text-gray-700"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Co-Coordinators -->
+                        <div class="mb-8">
+                            <h3 class="text-lg font-bold mb-3">Co-Coordinators</h3>
+                            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
+                                <!-- many small cards -->
+                                <div class="team-card p-3 bg-white rounded text-center">
+                                    <img src="./assets/team/co1.jpg" alt=""
+                                        class="w-20 h-20 mx-auto rounded-full object-cover">
+                                    <div class="mt-2 text-sm font-medium">N. Sharma</div>
+                                    <div class="text-xs text-gray-500">Co-Coordinator</div>
+                                </div>
+
+                                <div class="team-card p-3 bg-white rounded text-center">
+                                    <img src="./assets/team/co2.jpg" alt=""
+                                        class="w-20 h-20 mx-auto rounded-full object-cover">
+                                    <div class="mt-2 text-sm font-medium">D. Roy</div>
+                                    <div class="text-xs text-gray-500">Co-Coordinator</div>
+                                </div>
+
+                                <div class="team-card p-3 bg-white rounded text-center">
+                                    <img src="./assets/team/co3.jpg" alt=""
+                                        class="w-20 h-20 mx-auto rounded-full object-cover">
+                                    <div class="mt-2 text-sm font-medium">P. Kaur</div>
+                                    <div class="text-xs text-gray-500">Co-Coordinator</div>
+                                </div>
+
+                                <div class="team-card p-3 bg-white rounded text-center">
+                                    <img src="./assets/team/co4.jpg" alt=""
+                                        class="w-20 h-20 mx-auto rounded-full object-cover">
+                                    <div class="mt-2 text-sm font-medium">M. Iyer</div>
+                                    <div class="text-xs text-gray-500">Co-Coordinator</div>
+                                </div>
+
+                                <div class="team-card p-3 bg-white rounded text-center">
+                                    <img src="./assets/team/co5.jpg" alt=""
+                                        class="w-20 h-20 mx-auto rounded-full object-cover">
+                                    <div class="mt-2 text-sm font-medium">L. Das</div>
+                                    <div class="text-xs text-gray-500">Co-Coordinator</div>
+                                </div>
+
+                                <div class="team-card p-3 bg-white rounded text-center">
+                                    <img src="./assets/team/co6.jpg" alt=""
+                                        class="w-20 h-20 mx-auto rounded-full object-cover">
+                                    <div class="mt-2 text-sm font-medium">R. Paul</div>
+                                    <div class="text-xs text-gray-500">Co-Coordinator</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Executives (many) -->
+                        <div>
+                            <h3 class="text-lg font-bold mb-3">Executives</h3>
+                            <p class="text-sm text-gray-600 mb-4">Student executives handle communication, logistics and
+                                day-to-day placement activities.</p>
+
+                            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-8 gap-4">
+                                <!-- create many placeholders; user will replace images/text -->
+                                <div class="team-card p-3 bg-white rounded text-center">
+                                    <img src="./assets/team/exe1.jpg" alt=""
+                                        class="w-18 h-18 mx-auto rounded-full object-cover">
+                                    <div class="mt-2 text-xs font-medium">S. Gupta</div>
+                                    <div class="text-[11px] text-gray-500">Executive</div>
+                                </div>
+                                <div class="team-card p-3 bg-white rounded text-center">
+                                    <img src="./assets/team/exe2.jpg" alt=""
+                                        class="w-18 h-18 mx-auto rounded-full object-cover">
+                                    <div class="mt-2 text-xs font-medium">K. Bhat</div>
+                                    <div class="text-[11px] text-gray-500">Executive</div>
+                                </div>
+                                <div class="team-card p-3 bg-white rounded text-center">
+                                    <img src="./assets/team/exe3.jpg" alt=""
+                                        class="w-18 h-18 mx-auto rounded-full object-cover">
+                                    <div class="mt-2 text-xs font-medium">R. Nair</div>
+                                    <div class="text-[11px] text-gray-500">Executive</div>
+                                </div>
+                                <div class="team-card p-3 bg-white rounded text-center">
+                                    <img src="./assets/team/exe4.jpg" alt=""
+                                        class="w-18 h-18 mx-auto rounded-full object-cover">
+                                    <div class="mt-2 text-xs font-medium">Z. Khan</div>
+                                    <div class="text-[11px] text-gray-500">Executive</div>
+                                </div>
+                                <div class="team-card p-3 bg-white rounded text-center">
+                                    <img src="./assets/team/exe5.jpg" alt=""
+                                        class="w-18 h-18 mx-auto rounded-full object-cover">
+                                    <div class="mt-2 text-xs font-medium">L. Fernandes</div>
+                                    <div class="text-[11px] text-gray-500">Executive</div>
+                                </div>
+
+                                <!-- more placeholders -->
+                                <div class="team-card p-3 bg-white rounded text-center">
+                                    <img src="./assets/team/exe6.jpg" alt=""
+                                        class="w-18 h-18 mx-auto rounded-full object-cover">
+                                    <div class="mt-2 text-xs font-medium">V. Prasad</div>
+                                    <div class="text-[11px] text-gray-500">Executive</div>
+                                </div>
+
+                                <div class="team-card p-3 bg-white rounded text-center">
+                                    <img src="./assets/team/exe7.jpg" alt=""
+                                        class="w-18 h-18 mx-auto rounded-full object-cover">
+                                    <div class="mt-2 text-xs font-medium">H. Chawla</div>
+                                    <div class="text-[11px] text-gray-500">Executive</div>
+                                </div>
+
+                                <div class="team-card p-3 bg-white rounded text-center">
+                                    <img src="./assets/team/exe8.jpg" alt=""
+                                        class="w-18 h-18 mx-auto rounded-full object-cover">
+                                    <div class="mt-2 text-xs font-medium">Y. Roy</div>
+                                    <div class="text-[11px] text-gray-500">Executive</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="bg-[#12384f] text-white py-4">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <div class="flex justify-center items-center flex-wrap gap-2 mb-1">
+                <nav class="flex items-center text-xs text-white space-x-0">
+                    <a href="https://www.jnu.ac.in/website-policy" class="hover:underline px-1">Website Policy</a>
+                    <span class="text-white">|</span>
+                    <a href="https://www.jnu.ac.in/disclaimer" class="hover:underline px-1">Disclaimer</a>
+                    <span class="text-white">|</span>
+                    <a href="https://www.jnu.ac.in/sitemap" class="hover:underline px-1">Sitemap</a>
+                    <span class="text-white">|</span>
+                    <a href="https://www.jnu.ac.in/contact" class="hover:underline px-1">Contact Us</a>
+                    <span class="text-white">|</span>
+                    <a href="https://www.jnu.ac.in/feedback" class="hover:underline px-1">Feedback</a>
+                </nav>
+            </div>
+
+            <div class="text-[12px] text-white leading-tight">
+                <p class="mb-1">&copy; Jawaharlal Nehru University. New Mehrauli Road, New Delhi 110067. All rights
+                    reserved.</p>
+                <p class="m-0">Last reviewed and updated on 2025-11-27</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+            // sliding toggle logic
+            (function () {
+                const btnAdmin = document.getElementById('btn-admin');
+                const btnStudents = document.getElementById('btn-students');
+                const track = document.getElementById('panelsTrack');
+
+                function showPanel(panelName, pushHistory = false) {
+                    if (panelName === 'students') {
+                        track.style.transform = 'translateX(-50%)';
+                        btnAdmin.setAttribute('aria-pressed', 'false');
+                        btnStudents.setAttribute('aria-pressed', 'true');
+                        document.getElementById('panel-students').querySelectorAll('img').forEach(i => i.loading = 'lazy');
+                    } else {
+                        track.style.transform = 'translateX(0)';
+                        btnAdmin.setAttribute('aria-pressed', 'true');
+                        btnStudents.setAttribute('aria-pressed', 'false');
+                        document.getElementById('panel-admin').querySelectorAll('img').forEach(i => i.loading = 'lazy');
+                    }
+                    if (pushHistory) {
+                        history.pushState({ panel: panelName }, '', `#${panelName}`);
+                    }
+                }
+
+                btnAdmin.addEventListener('click', () => showPanel('admin', true));
+                btnStudents.addEventListener('click', () => showPanel('students', true));
+
+                // keyboard support
+                btnAdmin.addEventListener('keydown', (e) => { if (e.key === 'ArrowRight') btnStudents.focus(); });
+                btnStudents.addEventListener('keydown', (e) => { if (e.key === 'ArrowLeft') btnAdmin.focus(); });
+
+                // default: show administration. check hash if present
+                const hash = location.hash.replace('#', '');
+                if (hash === 'students' || hash === 'panel-students') showPanel('students');
+                else showPanel('admin');
+
+                // handle back/forward
+                window.addEventListener('popstate', (e) => {
+                    const statePanel = (e.state && e.state.panel) ? e.state.panel : (location.hash.replace('#', '') === 'students' ? 'students' : 'admin');
+                    showPanel(statePanel, false);
+                });
+
+                // If reduced motion requested, shorten/disable animation for pref users
+                if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                    track.style.transition = 'none';
+                }
+            })();
+
+        document.querySelectorAll('a[href^="mailto:"]').forEach(a => {
+            a.addEventListener('click', () => {/* keep default behaviour */ });
+        });
+
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        }
+    </script>
+</body>
+
+</html>

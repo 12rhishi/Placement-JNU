@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alumni | JNU Placement Cell</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700&display=swap"
+        rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        jnuBlue: '#003366',
+                        jnuLightBlue: '#005b96',
+                        jnuRed: '#990000',
+                        jnuGold: '#C5A059',
+                        lightGray: '#f8f9fa',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Merriweather', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-gray-50 font-sans antialiased text-gray-800 flex flex-col min-h-screen">
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="window.location.href='home.html'">
+                    <div class="flex items-center gap-3">
+                        <div><img src="assets/logos/jnulogo2.png" alt="JNU logo" class="h-12 w-12 object-contain"></div>
+                        <div class="border-l-2 border-gray-300 pl-3">
+                            <h1 class="text-lg font-serif font-bold text-jnuBlue leading-none">Jawaharlal Nehru
+                                university</h1>
+                            <p class="text-[10px] font-bold text-jnuRed tracking-widest uppercase mt-1">Placement Cell
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="home.html" class="text-gray-600 hover:text-jnuBlue font-medium text-sm uppercase">HOME</a>
+                    <a href="About_Us.html" class="text-gray-600 hover:text-jnuBlue font-medium text-sm uppercase">ABOUT
+                        US</a>
+                    <a href="For_Recuiters.html"
+                        class="text-gray-600 hover:text-jnuBlue font-medium text-sm uppercase">FOR RECUITERS</a>
+                    <a href="students.html" class="text-gray-600 hover:text-jnuBlue font-medium text-sm uppercase">FOR
+                        STUDENTS</a>
+                    <a href="Campus_Life.html"
+                        class="text-gray-600 hover:text-jnuBlue font-medium text-sm uppercase">CAMPUS LIFE</a>
+                    <a href="team.html" class="text-gray-600 hover:text-jnuBlue font-medium text-sm uppercase">OUR
+                        TEAM</a>
+                    <a href="Our_Alumini.html"
+                        class="text-jnuBlue font-bold text-sm uppercase border-b-2 border-jnuRed">OUR ALUMINI</a>
+                    <a href="Contact_Us.html"
+                        class="text-gray-600 hover:text-jnuBlue font-medium text-sm uppercase">CONTACT US</a>
+
+
+                </div>
+                <div class="flex items-center md:hidden">
+                    <button onclick="toggleMobileMenu()"
+                        class="text-gray-600 hover:text-jnuBlue p-2 focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobileMenu"
+            class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full shadow-xl z-40 left-0">
+            <div class="px-4 pt-2 pb-4 space-y-2">
+                <a href="home.html"
+                    class="block py-2 text-sm font-semibold text-gray-600 hover:text-jnuBlue border-b border-gray-100">Home</a>
+                <a href="About_Us.html"
+                    class="block py-2 text-sm font-semibold text-gray-600 hover:text-jnuBlue border-b border-gray-100">ABOUT
+                    US</a>
+                <a href="For_Recuiters.html"
+                    class="block py-2 text-sm font-semibold text-gray-600 hover:text-jnuBlue border-b border-gray-100">FOR
+                    RECUITERS</a>
+                <a href="students.html"
+                    class="block py-2 text-sm font-semibold text-gray-600 hover:text-jnuBlue border-b border-gray-100">FOR
+                    STUDENTS</a>
+                <a href="Campus_Life.html"
+                    class="block py-2 text-sm font-semibold text-gray-600 hover:text-jnuBlue border-b border-gray-100">CAMPUS
+                    LIFE</a>
+                <a href="team.html"
+                    class="block py-2 text-sm font-semibold text-gray-600 hover:text-jnuBlue border-b border-gray-100">OUR
+                    TEAM</a>
+                <a href="Our_Alumini.html" class="block py-2 text-sm font-bold text-jnuBlue">OUR ALUMINI</a>
+                <a href="Contact_Us.html"
+                    class="block py-2 text-sm font-semibold text-gray-600 hover:text-jnuBlue border-b border-gray-100">CONTACT
+                    US</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-grow">
+
+        <!-- Header (No Hero) -->
+        <div class="bg-white border-b border-gray-200 pt-16 pb-10">
+            <div class="max-w-7xl mx-auto px-4 text-center">
+                <h2 class="text-jnuRed font-bold tracking-widest uppercase text-xs mb-3">Our Pride</h2>
+                <h1 class="text-4xl md:text-5xl font-serif font-bold text-jnuBlue mb-6">Distinguished Alumni</h1>
+                <p class="text-gray-500 max-w-3xl mx-auto text-lg font-light leading-relaxed">
+                    JNU notable Alumni placed as top government officials, corporate giants and academicians are a
+                    measure of our success. Jawaharlal Nehru University Placement Cell takes immense pride in its alumni
+                    and welcomes them to mentor, guide and and share their experience with our students.
+                </p>
+            </div>
+        </div>
+
+        <!-- Distinguished Alumni Grid -->
+        <section class="py-16 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+
+                    <!-- Card 1: Dr. S Jaishankar -->
+                    <div
+                        class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 flex flex-col md:flex-row items-center md:items-stretch border border-gray-100">
+                        <div class="w-full md:w-1/3 h-auto md:h-auto relative">
+                            <img src="assets/Alumini/jaishankar.webp" alt="Dr. S Jaishankar"
+                                class="w-full h-45 object-cover object-top">
+                        </div>
+                        <div class="w-full md:w-2/3 p-8 flex flex-col justify-center">
+                            <h3 class="text-2xl font-bold text-jnuBlue mb-1">Dr. S. Jaishankar</h3>
+                            <p class="text-jnuRed font-medium text-sm uppercase tracking-wide mb-4">External Affairs
+                                Minister of India</p>
+                            <p class="text-gray-600 text-sm leading-relaxed">
+                                A career diplomat, he has served as India's Foreign Secretary and ambassador to the
+                                U.S., China, and Singapore before becoming the nation's top foreign policy leader. He
+                                holds an M.Phil and Ph.D. in International Relations from JNU.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Geetanjali Shree -->
+                    <div
+                        class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 flex flex-col md:flex-row items-center md:items-stretch border border-gray-100">
+                        <div class="w-full md:w-1/3 h-64 md:h-auto relative">
+                            <img src="assets/Alumini/geethanjali.webp" alt="Geetanjali Shree"
+                                class="w-full h-full object-cover object-top">
+                        </div>
+                        <div class="w-full md:w-2/3 p-8 flex flex-col justify-center">
+                            <h3 class="text-2xl font-bold text-jnuBlue mb-1">Geetanjali Shree</h3>
+                            <p class="text-jnuRed font-medium text-sm uppercase tracking-wide mb-4">Author & Booker
+                                Prize Winner</p>
+                            <p class="text-gray-600 text-sm leading-relaxed">
+                                Acclaimed novelist and short story writer, she became the first Indian to win the
+                                International Booker Prize for her Hindi novel 'Tomb of Sand', a milestone for Indian
+                                literature. She is an alumna of JNU's Centre for Historical Studies.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Nirmala Sitharaman -->
+                    <div
+                        class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 flex flex-col md:flex-row items-center md:items-stretch border border-gray-100">
+                        <div class="w-full md:w-1/3 h-64 md:h-auto relative">
+                            <img src="assets/Alumini/nirmala_sitharaman.jpg" alt="Nirmala Sitharaman"
+                                class="w-full h-full object-cover object-top">
+                        </div>
+                        <div class="w-full md:w-2/3 p-8 flex flex-col justify-center">
+                            <h3 class="text-2xl font-bold text-jnuBlue mb-1">Nirmala Sitharaman</h3>
+                            <p class="text-jnuRed font-medium text-sm uppercase tracking-wide mb-4">Finance Minister of
+                                India</p>
+                            <p class="text-gray-600 text-sm leading-relaxed">
+                                A key figure in Indian economic policy, she has served as Defence and Finance Minister,
+                                playing a pivotal role in shaping India's fiscal and strategic direction. She completed
+                                her M.Phil in Economics from JNU.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Card 4: Abhijit Banerjee -->
+                    <div
+                        class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 flex flex-col md:flex-row items-center md:items-stretch border border-gray-100">
+                        <div class="w-full md:w-1/3 h-64 md:h-auto relative">
+                            <img src="assets/Alumini/abhijit.jpeg" alt="Abhijit Banerjee"
+                                class="w-full h-full object-cover object-top">
+                        </div>
+                        <div class="w-full md:w-2/3 p-8 flex flex-col justify-center">
+                            <h3 class="text-2xl font-bold text-jnuBlue mb-1">Abhijit Banerjee</h3>
+                            <p class="text-jnuRed font-medium text-sm uppercase tracking-wide mb-4">Nobel Laureate &
+                                Economist</p>
+                            <p class="text-gray-600 text-sm leading-relaxed">
+                                Renowned for his work on poverty alleviation, he co-won the Nobel Prize in Economics in
+                                2019. He is a professor at MIT known for evidence-based development research and
+                                completed his Masters in Economics at JNU.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Card 5: Dr. Alok Bhattacharya -->
+                    <div
+                        class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 flex flex-col md:flex-row items-center md:items-stretch border border-gray-100">
+                        <div class="w-full md:w-1/3 h-64 md:h-auto relative">
+                            <!-- Placeholder for Dr. Alok as generic academic image due to copyright safety -->
+                            <div class="w-full h-full bg-gray-200 flex items-center justify-center text-gray-400">
+                                <img src="assets/Alumini/alok.webp" class="w-full h-full object-cover object-top"></a>
+                            </div>
+                        </div>
+                        <div class="w-full md:w-2/3 p-8 flex flex-col justify-center">
+                            <h3 class="text-2xl font-bold text-jnuBlue mb-1">Dr. Alok Bhattacharya</h3>
+                            <p class="text-jnuRed font-medium text-sm uppercase tracking-wide mb-4">Molecular Biologist
+                                & Academic</p>
+                            <p class="text-gray-600 text-sm leading-relaxed">
+                                A leading researcher in cell biology and parasitology, he has contributed extensively to
+                                biomedical science and served as a professor at JNU and member of top scientific bodies.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Card 6: Admiral R. Hari Kumar -->
+                    <div
+                        class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 flex flex-col md:flex-row items-center md:items-stretch border border-gray-100">
+                        <div class="w-full md:w-1/3 h-64 md:h-auto relative">
+                            <img src="assets/Alumini/hari.jpg" alt="Admiral R. Hari Kumar"
+                                class="w-full h-full object-cover object-top">
+                        </div>
+                        <div class="w-full md:w-2/3 p-8 flex flex-col justify-center">
+                            <h3 class="text-2xl font-bold text-jnuBlue mb-1">Admiral R. Hari Kumar</h3>
+                            <p class="text-jnuRed font-medium text-sm uppercase tracking-wide mb-4">Former Chief of
+                                Naval Staff</p>
+                            <p class="text-gray-600 text-sm leading-relaxed">
+                                A decorated naval officer, he headed the Indian Navy and held key leadership roles in
+                                maritime strategy, operations, and defense planning. He is an alumnus of the National
+                                Defence Academy (JNU affiliation).
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Alumni Connect / Call to Action -->
+        <section class="bg-jnuBlue py-16 text-white">
+            <div class="max-w mx-auto px-4 text-center">
+                <h2 class="text-3xl font-bold mb-4">Connect with the JNU Network</h2>
+                <p class="text-blue-200 mb-8 text-lg">
+                    Are you a JNU Alumnus? Join our official network to mentor current students, share opportunities,
+                    and stay connected with your alma mater.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="https://forms.gle/vE4BHCMEBodw7hVV7" target="_blank"
+                        class="bg-jnuGold text-jnuBlue font-bold py-3 px-8 rounded-full hover:bg-white transition duration-300">
+                        Register as Alumni
+                    </a>
+                    <a href="https://www.jnu.ac.in/alumni-affairs" target="_blank"
+                        class="border-2 border-white text-white font-bold py-3 px-8 rounded-full hover:bg-white hover:text-jnuBlue transition duration-300">
+                        Visit JNU Alumni affairs Office
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#12384f] text-white py-4">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <div class="flex justify-center items-center flex-wrap gap-2 mb-1">
+                <nav class="flex items-center text-xs text-white space-x-0">
+                    <a href="https://www.jnu.ac.in/website-policy" class="hover:underline px-1">Website Policy</a>
+                    <span class="text-white">|</span>
+                    <a href="https://www.jnu.ac.in/disclaimer" class="hover:underline px-1">Disclaimer</a>
+                    <span class="text-white">|</span>
+                    <a href="https://www.jnu.ac.in/sitemap" class="hover:underline px-1">Sitemap</a>
+                    <span class="text-white">|</span>
+                    <a href="https://www.jnu.ac.in/contact" class="hover:underline px-1">Contact Us</a>
+                    <span class="text-white">|</span>
+                    <a href="https://www.jnu.ac.in/feedback" class="hover:underline px-1">Feedback</a>
+                </nav>
+            </div>
+
+            <div class="text-[12px] text-white leading-tight">
+                <p class="mb-1">&copy; Jawaharlal Nehru University. New Mehrauli Road, New Delhi 110067. All rights
+                    reserved.</p>
+                <p class="m-0">Last reviewed and updated on 2025-11-27</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        }
+    </script>
+</body>
+
+</html>
