@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Students | Placement Cell — Jawaharlal Nehru University</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700&display=swap"
+        rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        jnuBlue: '#003366',
+                        jnuLightBlue: '#005b96',
+                        jnuRed: '#990000',
+                        jnuGold: '#C5A059'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Merriweather', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .accent-line {
+            width: 42px;
+            height: 6px;
+            background: linear-gradient(90deg, #003366, #990000);
+            border-radius: 6px;
+            display: inline-block;
+            margin-right: 0.75rem;
+        }
+
+        .doc-card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.75rem;
+            padding: 1.25rem;
+            text-align: center;
+            transition: all 0.28s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .doc-card:hover {
+            border-color: #003366;
+            box-shadow: 0 8px 16px rgba(0, 51, 102, 0.12);
+            transform: translateY(-4px);
+        }
+
+        .doc-icon {
+            font-size: 2.5rem;
+            color: #003366;
+            margin-bottom: 0.75rem;
+        }
+
+        .rules-list {
+            list-style: decimal inside;
+            padding-left: 0;
+        }
+
+        .rules-list li {
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            color: #374151;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            cursor: pointer;
+            padding: 1rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: #003366;
+            transition: all 0.28s ease;
+        }
+
+        .faq-question:hover {
+            color: #005b96;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.28s ease;
+            color: #666;
+            padding-bottom: 0;
+        }
+
+        .faq-answer.active {
+            max-height: 500px;
+            padding-bottom: 1rem;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 font-sans antialiased text-gray-800">
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="window.location.href='index.html'">
+                    <div class="flex items-center gap-3">
+                        <div class="text-jnuBlue text-4xl">
+                            <img src="./assets/logos/jnulogo2.png" alt="JNU logo" class="h-12 w-12 object-contain">
+                        </div>
+                        <div class="border-l-2 border-gray-300 pl-3">
+                            <h1 class="text-lg font-serif font-bold text-jnuBlue leading-none">Jawaharlal Nehru
+                                university</h1>
+                            <p class="text-[10px] font-bold text-jnuRed tracking-widest uppercase mt-1">Placement Cell
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hidden md:flex items-center space-x-4 px-4">
+                    <a href="index.html"
+                        class="text-gray-600 hover:text-jnuBlue font-medium text-sm uppercase whitespace-nowrap">HOME</a>
+                    <a href="About_Us.html"
+                        class="text-gray-600 hover:text-jnuBlue font-medium text-sm uppercase whitespace-nowrap">ABOUT
+                        US</a>
+                    <a href="Placement_Notices.html"
+                        class="text-gray-600 hover:text-jnuBlue font-medium text-sm uppercase whitespace-nowrap">PLACEMENT
+                        NOTICES</a>
+                    <a href="For_Recuiters.html"
+                        class="text-gray-600 hover:text-jnuBlue font-medium text-sm uppercase whitespace-nowrap">FOR
+                        RECUITERS</a>
+                    <a href="students.html"
+                        class="text-jnuBlue font-bold text-sm uppercase border-b-2 border-jnuRed whitespace-nowrap">FOR
+                        STUDENTS</a>
+                    <a href="Campus_Life.html"
+                        class="text-gray-600 hover:text-jnuBlue font-medium text-sm uppercase whitespace-nowrap">CAMPUS
+                        LIFE</a>
+                    <a href="team.html"
+                        class="text-gray-600 hover:text-jnuBlue font-medium text-sm uppercase whitespace-nowrap">OUR
+                        TEAM</a>
+                    <a href="Our_Alumini.html"
+                        class="text-gray-600 hover:text-jnuBlue font-medium text-sm uppercase whitespace-nowrap">OUR
+                        ALUMINI</a>
+                    <a href="Contact_Us.html"
+                        class="text-gray-600 hover:text-jnuBlue font-medium text-sm uppercase whitespace-nowrap">CONTACT
+                        US</a>
+                </div>
+                <div class="flex items-center md:hidden">
+                    <button onclick="toggleMobileMenu()"
+                        class="text-gray-600 hover:text-jnuBlue p-2 focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobileMenu"
+            class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full shadow-xl z-40 left-0">
+            <div class="px-4 pt-2 pb-4 space-y-2">
+                <a href="index.html"
+                    class="block py-2 text-sm font-semibold text-gray-600 hover:text-jnuBlue border-b border-gray-100">HOME</a>
+                <a href="About_Us.html"
+                    class="block py-2 text-sm font-semibold text-gray-600 hover:text-jnuBlue border-b border-gray-100">ABOUT
+                    US</a>
+                <a href="Placement_Notices.html"
+                    class="block py-2 text-sm font-semibold text-gray-600 hover:text-jnuBlue border-b border-gray-100">PLACEMENT
+                    NOTICES</a>
+                <a href="For_Recuiters.html"
+                    class="block py-2 text-sm font-semibold text-gray-600 hover:text-jnuBlue border-b border-gray-100">FOR
+                    RECUITERS</a>
+                <a href="students.html" class="block py-2 text-sm font-bold text-jnuBlue">FOR STUDENTS</a>
+                <a href="Campus_Life.html"
+                    class="block py-2 text-sm font-semibold text-gray-600 hover:text-jnuBlue border-b border-gray-100">CAMPUS
+                    LIFE</a>
+                <a href="team.html"
+                    class="block py-2 text-sm font-semibold text-gray-600 hover:text-jnuBlue border-b border-gray-100">OUR
+                    TEAM</a>
+                <a href="Our_Alumini.html"
+                    class="block py-2 text-sm font-semibold text-gray-600 hover:text-jnuBlue border-b border-gray-100">OUR
+                    ALUMINI</a>
+                <a href="Contact_Us.html"
+                    class="block py-2 text-sm font-semibold text-gray-600 hover:text-jnuBlue border-b border-gray-100">CONTACT
+                    US</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Hero -->
+    <header class="bg-gray-100 py-8 border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-3xl md:text-4xl font-serif font-bold text-jnuBlue mb-2">For Students</h1>
+            <p class="text-gray-600 max-w-3xl mx-auto">Rules, guidelines, and resources for JNU students participating
+                in campus placements.</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+        <!-- Rules and Guidelines Section -->
+        <section class="mb-16">
+            <div class="flex items-center mb-6">
+                <span class="accent-line"></span>
+                <h2 class="text-2xl font-serif font-bold text-gray-800">Rules and Guidelines for Students</h2>
+            </div>
+            <div class="bg-white rounded shadow-sm p-8">
+                <ul class="rules-list">
+                    <li>Students should regularly visit the JNU Placement Cell website for jobs, internships, and
+                        training updates.</li>
+                    <li>Interested students must register with the Placement Cell and uppload thier CV by filling the
+                        Student Registration
+                        Form (see below).</li>
+                    <li>All information related to Campus Recruitment, Jobs, and Internships shall be available on the
+                        JNU Placement Cell webpage.</li>
+                    <li>The Placement Cell will not be responsible for absenteeism in any test, interview, or selection
+                        process required by the company.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Documents & Resources -->
+        <section class="mb-16">
+            <div class="flex items-center mb-6">
+                <span class="accent-line"></span>
+                <h2 class="text-2xl font-serif font-bold text-gray-800">Documents & Resources</h2>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                <a href="assets/Files/placementPolicy.pdf" class="doc-card">
+                    <div class="doc-icon"><i class="fas fa-file-pdf"></i></div>
+                    <h3 class="font-bold text-gray-800 mb-2">Placement Policy</h3>
+                    <p class="text-sm text-gray-600">Rules and guidelines for campus placements</p>
+                </a>
+                <a href="#" class="doc-card">
+                    <div class="doc-icon"><i class="fas fa-check-circle"></i></div>
+                    <h3 class="font-bold text-gray-800 mb-2">Registration Form</h3>
+                    <p class="text-sm text-gray-600">Fill the Student Registration Form to participate</p>
+                </a>
+                <a href="#" class="doc-card">
+                    <div class="doc-icon"><i class="fas fa-file-alt"></i></div>
+                    <h3 class="font-bold text-gray-800 mb-2">Resume Template</h3>
+                    <p class="text-sm text-gray-600">Standard resume format for JNU students</p>
+                </a>
+            </div>
+        </section>
+
+        <!-- Frequently Asked Questions -->
+        <section class="mb-16">
+            <div class="flex items-center mb-6">
+                <span class="accent-line"></span>
+                <h2 class="text-2xl font-serif font-bold text-gray-800">Frequently Asked Questions</h2>
+            </div>
+            <div class="bg-white rounded shadow-sm p-8">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>How will I come to know about job vacancies?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>The JNU Placement Cell posts job announcements on its website. Registered students also
+                            receive email notifications about jobs, internships, and events.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>How may I avail the JNU Placement Cell support?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>To access support and opportunities, you must register with the Placement Cell by filling the
+                            Student Registration Form available on this page.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>How many organisations can I apply for?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>You can apply to as many companies as you like until you are placed.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Are there any school-specific organisations invited?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, both school-specific and multi-disciplinary organizations are invited to conduct
+                            placement drives.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>How do organisations shortlist programs they wish to interact with?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Candidates are chosen from a pool of applicants based on their CVs.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Can I apply for M.Tech placement drives if I am not pursuing M.Tech but have done B.Tech
+                            in CSE/ECE?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>It depends on the organization. If the role is strictly for M.Tech students, you are not
+                            allowed to apply. If the organization is also looking for B.Tech graduates, then you may
+                            apply.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>What kind of information do students expect in Pre-Placement Talks?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <ul class="list-disc pl-6">
+                            <li>Profile and reputation of the corporation</li>
+                            <li>Career roles and responsibilities offered in different types of profiles</li>
+                            <li>Locations where the student is likely to be posted</li>
+                            <li>Compensation packages</li>
+                        </ul>
+                        <p>The pre-placement talk is a platform for interaction between the organisation and the
+                            students, followed by a Q&A session for better understanding of the organisation and
+                            potential roles.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#12384f] text-white py-4">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <div class="flex justify-center items-center flex-wrap gap-2 mb-1">
+                <nav class="flex items-center text-xs text-white space-x-0">
+                    <a href="https://www.jnu.ac.in/website-policy" class="hover:underline px-1">Website Policy</a>
+                    <span class="text-white">|</span>
+                    <a href="https://www.jnu.ac.in/disclaimer" class="hover:underline px-1">Disclaimer</a>
+                    <span class="text-white">|</span>
+                    <a href="https://www.jnu.ac.in/sitemap" class="hover:underline px-1">Sitemap</a>
+                    <span class="text-white">|</span>
+                    <a href="https://www.jnu.ac.in/contact" class="hover:underline px-1">Contact Us</a>
+                    <span class="text-white">|</span>
+                    <a href="https://www.jnu.ac.in/feedback" class="hover:underline px-1">Feedback</a>
+                </nav>
+            </div>
+            <div class="text-[12px] text-white leading-tight">
+                <p class="mb-1">&copy; Jawaharlal Nehru University. New Mehrauli Road, New Delhi 110067. All rights
+                    reserved.</p>
+                <p class="m-0">Last reviewed and updated on 2025-11-28</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleFAQ(element) {
+            const answer = element.nextElementSibling;
+            const icon = element.querySelector('i');
+            document.querySelectorAll('.faq-answer.active').forEach(el => {
+                if (el !== answer) {
+                    el.classList.remove('active');
+                    el.previousElementSibling.querySelector('i').style.transform = 'rotate(0deg)';
+                }
+            });
+            answer.classList.toggle('active');
+            icon.style.transform = answer.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
+            icon.style.transition = 'transform 0.28s ease';
+        }
+
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        }
+    </script>
+
+</body>
+
+</html>

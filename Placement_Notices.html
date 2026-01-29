@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placement Notices | Jawaharlal Nehru University</title>
+    <meta name="description"
+        content="Official Placement Notices from JNU Placement Cell - Stay updated with the latest placement opportunities, PPT schedules, and recruitment announcements.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700&display=swap"
+        rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        jnuBlue: '#003366',
+                        jnuLightBlue: '#005b96',
+                        jnuRed: '#990000',
+                        jnuGold: '#C5A059',
+                        lightGray: '#f8f9fa',
+                        darkGray: '#343a40'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Merriweather', 'serif'],
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.5s ease-out forwards',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(10px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Notice card animations */
+        .notice-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .notice-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -12px rgba(0, 51, 102, 0.15);
+        }
+
+        /* Badge pulse animation */
+        .badge-new {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.7;
+            }
+        }
+
+        /* Filter button active state */
+        .filter-btn.active {
+            background: linear-gradient(135deg, #003366 0%, #005b96 100%);
+            color: white;
+            box-shadow: 0 4px 15px -3px rgba(0, 51, 102, 0.4);
+        }
+
+        /* Gradient text */
+        .gradient-text {
+            background: linear-gradient(135deg, #003366 0%, #990000 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #c5a059;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #003366;
+        }
+
+        /* Search input styling */
+        .search-input:focus {
+            box-shadow: 0 0 0 3px rgba(0, 51, 102, 0.2);
+        }
+
+        /* Category tag colors */
+        .category-placement {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        }
+
+        .category-internship {
+            background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+        }
+
+        .category-ppt {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+        }
+
+        .category-general {
+            background: linear-gradient(135deg, #6b7280 0%, #4b5563 100%);
+        }
+
+        .category-urgent {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 font-sans antialiased text-gray-800 flex flex-col min-h-screen">
+
+    <!-- Main Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="window.location.href='index.html'">
+                    <div class="flex items-center gap-3">
+                        <div class="text-jnuBlue text-4xl">
+                            <img src="./assets/logos/jnulogo2.png" alt="JNU logo" class="h-12 w-12 object-contain">
+                        </div>
+                        <div class="border-l-2 border-gray-300 pl-3">
+                            <h1 class="text-lg font-serif font-bold text-jnuBlue leading-none">Jawaharlal Nehru
+                                university</h1>
+                            <p class="text-[10px] font-bold text-jnuRed tracking-widest uppercase mt-1">Placement Cell
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-4 px-4">
+                    <a href="index.html"
+                        class="text-gray-600 hover:text-jnuBlue font-medium text-sm uppercase whitespace-nowrap">HOME</a>
+                    <a href="About_Us.html"
+                        class="text-gray-600 hover:text-jnuBlue font-medium text-sm uppercase whitespace-nowrap">ABOUT
+                        US</a>
+                    <a href="Placement_Notices.html"
+                        class="text-jnuBlue font-bold text-sm uppercase border-b-2 border-jnuRed whitespace-nowrap">PLACEMENT
+                        NOTICES</a>
+                    <a href="For_Recuiters.html"
+                        class="text-gray-600 hover:text-jnuBlue font-medium text-sm uppercase whitespace-nowrap">FOR
+                        RECUITERS</a>
+                    <a href="students.html"
+                        class="text-gray-600 hover:text-jnuBlue font-medium text-sm uppercase whitespace-nowrap">FOR
+                        STUDENTS</a>
+                    <a href="Campus_Life.html"
+                        class="text-gray-600 hover:text-jnuBlue font-medium text-sm uppercase whitespace-nowrap">CAMPUS
+                        LIFE</a>
+                    <a href="team.html"
+                        class="text-gray-600 hover:text-jnuBlue font-medium text-sm uppercase whitespace-nowrap">OUR
+                        TEAM</a>
+                    <a href="Our_Alumini.html"
+                        class="text-gray-600 hover:text-jnuBlue font-medium text-sm uppercase whitespace-nowrap">OUR
+                        ALUMINI</a>
+                    <a href="Contact_Us.html"
+                        class="text-gray-600 hover:text-jnuBlue font-medium text-sm uppercase whitespace-nowrap">CONTACT
+                        US</a>
+                </div>
+                <div class="flex items-center md:hidden">
+                    <button onclick="toggleMobileMenu()"
+                        class="text-gray-600 hover:text-jnuBlue p-2 focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobileMenu"
+            class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full shadow-xl z-40 left-0">
+            <div class="px-4 pt-2 pb-4 space-y-2">
+                <a href="index.html"
+                    class="block py-2 text-sm font-semibold text-gray-600 hover:text-jnuBlue border-b border-gray-100">HOME</a>
+                <a href="About_Us.html"
+                    class="block py-2 text-sm font-semibold text-gray-600 hover:text-jnuBlue border-b border-gray-100">ABOUT
+                    US</a>
+                <a href="Placement_Notices.html" class="block py-2 text-sm font-bold text-jnuBlue">PLACEMENT NOTICES</a>
+                <a href="For_Recuiters.html"
+                    class="block py-2 text-sm font-semibold text-gray-600 hover:text-jnuBlue border-b border-gray-100">FOR
+                    RECUITERS</a>
+                <a href="students.html"
+                    class="block py-2 text-sm font-semibold text-gray-600 hover:text-jnuBlue border-b border-gray-100">FOR
+                    STUDENTS</a>
+                <a href="Campus_Life.html"
+                    class="block py-2 text-sm font-semibold text-gray-600 hover:text-jnuBlue border-b border-gray-100">CAMPUS
+                    LIFE</a>
+                <a href="team.html"
+                    class="block py-2 text-sm font-semibold text-gray-600 hover:text-jnuBlue border-b border-gray-100">OUR
+                    TEAM</a>
+                <a href="Our_Alumini.html"
+                    class="block py-2 text-sm font-semibold text-gray-600 hover:text-jnuBlue border-b border-gray-100">OUR
+                    ALUMINI</a>
+                <a href="Contact_Us.html"
+                    class="block py-2 text-sm font-semibold text-gray-600 hover:text-jnuBlue border-b border-gray-100">CONTACT
+                    US</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Banner (Standardized) -->
+    <div class="relative bg-gradient-to-r from-jnuBlue via-jnuLightBlue to-jnuBlue text-white py-12 overflow-hidden">
+        <!-- Decorative elements -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-0 left-0 w-72 h-72 bg-white rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+            <div class="absolute bottom-0 right-0 w-96 h-96 bg-jnuGold rounded-full translate-x-1/2 translate-y-1/2">
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex items-center justify-center gap-4 mb-4">
+                <i class="fas fa-bullhorn text-jnuGold text-3xl animate-bounce"></i>
+                <h1 class="text-3xl md:text-4xl font-serif font-bold">Placement Notices</h1>
+            </div>
+            <p class="text-center text-blue-100 max-w-2xl mx-auto">
+                Stay updated with the latest placement opportunities, Pre-Placement Talks, and important announcements
+                from the JNU Placement Cell.
+            </p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="flex-grow">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+
+            <!-- Search and Filter Section -->
+            <div class="bg-white rounded-xl shadow-lg p-6 mb-8 border border-gray-100">
+                <div class="flex flex-col lg:flex-row gap-4 items-center justify-between">
+                    <!-- Search Bar -->
+                    <div class="relative w-full lg:w-96">
+                        <span class="absolute inset-y-0 left-0 flex items-center pl-4 text-gray-400">
+                            <i class="fas fa-search"></i>
+                        </span>
+                        <input type="text" id="searchInput"
+                            class="search-input w-full pl-12 pr-4 py-3 border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-jnuBlue transition"
+                            placeholder="Search notices by title, company, or keyword...">
+                    </div>
+
+                    <!-- Filter Buttons -->
+                    <div class="flex flex-wrap gap-2 justify-center">
+                        <button onclick="filterNotices('all')"
+                            class="filter-btn active px-4 py-2 rounded-full text-sm font-medium border border-gray-200 transition hover:border-jnuBlue">
+                            <i class="fas fa-list-ul mr-1"></i> All
+                        </button>
+                        <button onclick="filterNotices('placement')"
+                            class="filter-btn px-4 py-2 rounded-full text-sm font-medium border border-gray-200 transition hover:border-jnuBlue">
+                            <i class="fas fa-briefcase mr-1"></i> Placements
+                        </button>
+                        <button onclick="filterNotices('internship')"
+                            class="filter-btn px-4 py-2 rounded-full text-sm font-medium border border-gray-200 transition hover:border-jnuBlue">
+                            <i class="fas fa-user-graduate mr-1"></i> Internships
+                        </button>
+                        <button onclick="filterNotices('ppt')"
+                            class="filter-btn px-4 py-2 rounded-full text-sm font-medium border border-gray-200 transition hover:border-jnuBlue">
+                            <i class="fas fa-presentation mr-1"></i> PPT
+                        </button>
+                        <button onclick="filterNotices('urgent')"
+                            class="filter-btn px-4 py-2 rounded-full text-sm font-medium border border-gray-200 transition hover:border-jnuBlue">
+                            <i class="fas fa-exclamation-circle mr-1"></i> Urgent
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats Bar -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                <div
+                    class="bg-gradient-to-br from-green-500 to-green-600 rounded-xl p-4 text-white text-center shadow-lg">
+                    <p class="text-3xl font-bold" id="totalNotices">0</p>
+                    <p class="text-xs uppercase tracking-wide opacity-90">Total Notices</p>
+                </div>
+                <div
+                    class="bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl p-4 text-white text-center shadow-lg">
+                    <p class="text-3xl font-bold" id="placementCount">0</p>
+                    <p class="text-xs uppercase tracking-wide opacity-90">Placements</p>
+                </div>
+                <div
+                    class="bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl p-4 text-white text-center shadow-lg">
+                    <p class="text-3xl font-bold" id="internshipCount">0</p>
+                    <p class="text-xs uppercase tracking-wide opacity-90">Internships</p>
+                </div>
+                <div
+                    class="bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl p-4 text-white text-center shadow-lg">
+                    <p class="text-3xl font-bold" id="pptCount">0</p>
+                    <p class="text-xs uppercase tracking-wide opacity-90">PPT Scheduled</p>
+                </div>
+            </div>
+
+            <!-- Notices Grid -->
+            <div id="noticesContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Notices will be injected here -->
+                <div class="col-span-full flex justify-center items-center py-16">
+                    <i class="fas fa-spinner fa-spin text-4xl text-gray-300"></i>
+                </div>
+            </div>
+
+            <!-- Load More Button -->
+            <div id="loadMoreContainer" class="text-center mt-10 hidden">
+                <button onclick="loadMoreNotices()"
+                    class="bg-gradient-to-r from-jnuBlue to-jnuLightBlue text-white px-8 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+                    <i class="fas fa-chevron-down mr-2"></i> Load More Notices
+                </button>
+            </div>
+
+            <!-- No Results Message -->
+            <div id="noResults" class="hidden text-center py-16">
+                <i class="fas fa-search text-6xl text-gray-300 mb-4"></i>
+                <h3 class="text-xl font-semibold text-gray-600">No notices found</h3>
+                <p class="text-gray-400">Try adjusting your search or filter criteria</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#12384f] text-white py-4">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <div class="flex justify-center items-center flex-wrap gap-2 mb-1">
+                <nav class="flex items-center text-xs text-white space-x-0">
+                    <a href="https://www.jnu.ac.in/website-policy" class="hover:underline px-1">Website Policy</a>
+                    <span class="text-white">|</span>
+                    <a href="https://www.jnu.ac.in/disclaimer" class="hover:underline px-1">Disclaimer</a>
+                    <span class="text-white">|</span>
+                    <a href="https://www.jnu.ac.in/sitemap" class="hover:underline px-1">Sitemap</a>
+                    <span class="text-white">|</span>
+                    <a href="https://www.jnu.ac.in/contact" class="hover:underline px-1">Contact Us</a>
+                    <span class="text-white">|</span>
+                    <a href="https://www.jnu.ac.in/feedback" class="hover:underline px-1">Feedback</a>
+                </nav>
+            </div>
+
+            <div class="text-[12px] text-white leading-tight">
+                <p class="mb-1">&copy; Jawaharlal Nehru University. New Mehrauli Road, New Delhi 110067. All rights
+                    reserved.</p>
+                <p class="m-0">Last reviewed and updated on 2025-01-21</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Sample Notices Data - In production, this would come from an API
+        const allNotices = [
+            {
+                id: 1,
+                title: "Placement Registration 2024-25 Phase 1 - Deadline Extended",
+                category: "urgent",
+                company: "JNU Placement Cell",
+                date: "2026-01-20",
+                description: "The deadline for Phase 1 placement registration has been extended. All eligible students are advised to complete their registration at the earliest.",
+                deadline: "2026-01-25",
+                isNew: true,
+                link: "#"
+            },
+            {
+                id: 2,
+                title: "Pre-Placement Talk: Amazon Development Centre",
+                category: "ppt",
+                company: "Amazon",
+                date: "2026-01-19",
+                description: "Amazon Development Centre will be conducting a Pre-Placement Talk for all registered students. Attendance is mandatory for placement consideration.",
+                deadline: "2026-01-22",
+                isNew: true,
+                link: "#"
+            },
+            {
+                id: 3,
+                title: "Resume Verification Slots for SIS Students",
+                category: "general",
+                company: "JNU Placement Cell",
+                date: "2026-01-18",
+                description: "Resume verification slots are now open for School of International Studies (SIS) students. Book your slot through the placement portal.",
+                deadline: "2026-01-28",
+                isNew: true,
+                link: "#"
+            },
+            {
+                id: 4,
+                title: "Internship Opportunities at Ministry of External Affairs",
+                category: "internship",
+                company: "Ministry of External Affairs",
+                date: "2026-01-17",
+                description: "MEA is offering internship opportunities for students from International Studies, Political Science, and related disciplines.",
+                deadline: "2026-02-10",
+                isNew: false,
+                link: "#"
+            },
+            {
+                id: 5,
+                title: "Deloitte Consulting: Final Selection List Released",
+                category: "placement",
+                company: "Deloitte",
+                date: "2026-01-15",
+                description: "The final selection list for Deloitte Consulting has been released. Selected candidates are advised to check their emails for further instructions.",
+                deadline: null,
+                isNew: false,
+                link: "#"
+            },
+            {
+                id: 6,
+                title: "Updated Placement Policy Document for 2024-25",
+                category: "general",
+                company: "JNU Placement Cell",
+                date: "2026-01-14",
+                description: "The updated placement policy document for the current academic session is now available. All students are advised to review the guidelines.",
+                deadline: null,
+                isNew: false,
+                link: "#"
+            },
+            {
+                id: 7,
+                title: "Microsoft India: Campus Recruitment Drive",
+                category: "placement",
+                company: "Microsoft",
+                date: "2026-01-12",
+                description: "Microsoft India will be conducting campus recruitment for various roles including Software Engineer, Data Scientist, and Product Manager.",
+                deadline: "2026-01-30",
+                isNew: false,
+                link: "#"
+            },
+            {
+                id: 8,
+                title: "TCS Digital Hiring: Application Window Open",
+                category: "placement",
+                company: "TCS",
+                date: "2026-01-10",
+                description: "TCS Digital hiring applications are now open for eligible students. Apply through the placement portal with your updated resume.",
+                deadline: "2026-02-05",
+                isNew: false,
+                link: "#"
+            },
+            {
+                id: 9,
+                title: "UNDP Internship Programme 2025",
+                category: "internship",
+                company: "UNDP",
+                date: "2026-01-08",
+                description: "United Nations Development Programme is accepting applications for their 2025 internship programme. Open to students from all disciplines.",
+                deadline: "2026-02-15",
+                isNew: false,
+                link: "#"
+            },
+            {
+                id: 10,
+                title: "Pre-Placement Talk: Google India",
+                category: "ppt",
+                company: "Google",
+                date: "2026-01-05",
+                description: "Google India will conduct a Pre-Placement Talk covering roles in Engineering, Marketing, and Business Development.",
+                deadline: "2026-01-15",
+                isNew: false,
+                link: "#"
+            },
+            {
+                id: 11,
+                title: "KPMG Advisory Services: Hiring for Analyst Roles",
+                category: "placement",
+                company: "KPMG",
+                date: "2026-01-03",
+                description: "KPMG Advisory Services is hiring for Analyst positions. Eligibility: MBA, Economics, and Commerce students.",
+                deadline: "2026-01-20",
+                isNew: false,
+                link: "#"
+            },
+            {
+                id: 12,
+                title: "World Bank Group Internship",
+                category: "internship",
+                company: "World Bank",
+                date: "2026-01-01",
+                description: "World Bank Group is offering internship opportunities for graduate students in Economics, Finance, and Development Studies.",
+                deadline: "2026-02-28",
+                isNew: false,
+                link: "#"
+            }
+        ];
+
+        let displayedNotices = 6;
+        let currentFilter = 'all';
+        let searchTerm = '';
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function () {
+            renderNotices();
+            updateStats();
+
+            // Search functionality
+            document.getElementById('searchInput').addEventListener('input', function (e) {
+                searchTerm = e.target.value.toLowerCase();
+                displayedNotices = 6;
+                renderNotices();
+            });
+        });
+
+        function filterNotices(category) {
+            currentFilter = category;
+            displayedNotices = 6;
+
+            // Update button states
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            renderNotices();
+        }
+
+        function getFilteredNotices() {
+            let filtered = allNotices;
+
+            // Apply category filter
+            if (currentFilter !== 'all') {
+                filtered = filtered.filter(n => n.category === currentFilter);
+            }
+
+            // Apply search filter
+            if (searchTerm) {
+                filtered = filtered.filter(n =>
+                    n.title.toLowerCase().includes(searchTerm) ||
+                    n.company.toLowerCase().includes(searchTerm) ||
+                    n.description.toLowerCase().includes(searchTerm)
+                );
+            }
+
+            return filtered;
+        }
+
+        function renderNotices() {
+            const container = document.getElementById('noticesContainer');
+            const noResults = document.getElementById('noResults');
+            const loadMoreContainer = document.getElementById('loadMoreContainer');
+
+            const filtered = getFilteredNotices();
+            const toDisplay = filtered.slice(0, displayedNotices);
+
+            if (filtered.length === 0) {
+                container.innerHTML = '';
+                noResults.classList.remove('hidden');
+                loadMoreContainer.classList.add('hidden');
+                return;
+            }
+
+            noResults.classList.add('hidden');
+
+            container.innerHTML = toDisplay.map((notice, index) => `
+                <div class="notice-card bg-white rounded-xl shadow-md overflow-hidden border border-gray-100 animate-fade-in-up" 
+                     style="animation-delay: ${index * 0.05}s">
+                    <div class="h-2 ${getCategoryGradient(notice.category)}"></div>
+                    <div class="p-5">
+                        <div class="flex items-start justify-between mb-3">
+                            <span class="px-3 py-1 rounded-full text-[10px] font-bold text-white uppercase ${getCategoryClass(notice.category)}">
+                                ${notice.category}
+                            </span>
+                            ${notice.isNew ? '<span class="badge-new bg-red-500 text-white text-[10px] px-2 py-1 rounded-full font-bold uppercase">New</span>' : ''}
+                        </div>
+                        
+                        <h3 class="font-bold text-gray-800 text-lg mb-2 leading-snug hover:text-jnuBlue transition cursor-pointer">
+                            ${notice.title}
+                        </h3>
+                        
+                        <div class="flex items-center gap-2 text-xs text-gray-500 mb-3">
+                            <i class="fas fa-building"></i>
+                            <span>${notice.company}</span>
+                            <span class="mx-1">•</span>
+                            <i class="fas fa-calendar"></i>
+                            <span>${formatDate(notice.date)}</span>
+                        </div>
+                        
+                        <p class="text-sm text-gray-600 mb-4 line-clamp-2">
+                            ${notice.description}
+                        </p>
+                        
+                        <div class="flex items-center justify-between pt-3 border-t border-gray-100">
+                            ${notice.deadline ? `
+                                <span class="text-xs text-orange-600 font-medium">
+                                    <i class="fas fa-clock mr-1"></i> Deadline: ${formatDate(notice.deadline)}
+                                </span>
+                            ` : '<span></span>'}
+                            <a href="${notice.link}" class="text-jnuBlue font-semibold text-sm hover:text-jnuRed transition flex items-center gap-1">
+                                View Details <i class="fas fa-arrow-right text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            // Show/hide load more button
+            if (filtered.length > displayedNotices) {
+                loadMoreContainer.classList.remove('hidden');
+            } else {
+                loadMoreContainer.classList.add('hidden');
+            }
+        }
+
+        function loadMoreNotices() {
+            displayedNotices += 6;
+            renderNotices();
+        }
+
+        function updateStats() {
+            document.getElementById('totalNotices').textContent = allNotices.length;
+            document.getElementById('placementCount').textContent = allNotices.filter(n => n.category === 'placement').length;
+            document.getElementById('internshipCount').textContent = allNotices.filter(n => n.category === 'internship').length;
+            document.getElementById('pptCount').textContent = allNotices.filter(n => n.category === 'ppt').length;
+        }
+
+        function getCategoryClass(category) {
+            const classes = {
+                'placement': 'category-placement',
+                'internship': 'category-internship',
+                'ppt': 'category-ppt',
+                'general': 'category-general',
+                'urgent': 'category-urgent'
+            };
+            return classes[category] || 'category-general';
+        }
+
+        function getCategoryGradient(category) {
+            const gradients = {
+                'placement': 'bg-gradient-to-r from-green-500 to-green-600',
+                'internship': 'bg-gradient-to-r from-indigo-500 to-indigo-600',
+                'ppt': 'bg-gradient-to-r from-amber-500 to-amber-600',
+                'general': 'bg-gradient-to-r from-gray-500 to-gray-600',
+                'urgent': 'bg-gradient-to-r from-red-500 to-red-600'
+            };
+            return gradients[category] || gradients['general'];
+        }
+
+        function formatDate(dateString) {
+            const options = { year: 'numeric', month: 'short', day: 'numeric' };
+            return new Date(dateString).toLocaleDateString('en-IN', options);
+        }
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        }
+    </script>
+
+</body>
+
+</html>
